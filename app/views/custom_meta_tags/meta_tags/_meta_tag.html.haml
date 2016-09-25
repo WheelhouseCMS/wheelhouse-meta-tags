@@ -1,0 +1,8 @@
+= form.fields_for :custom_meta_tags, meta_tag, :index => index do |f|
+  %tr{ 'data-index' => index }
+    %td= f.text_field :name, :id => nil, :placeholder => "e.g. OpenGraph Description"
+    %td= f.select :attribute_type, meta_tag.attribute_type.options_for_select, :id => nil
+    %td= f.text_field :attribute_key, :id => nil, :placeholder => "e.g. og:description"
+    %td= f.select :value_type, meta_tag.value_type.options_for_select, :id => nil
+    %td= f.text_field :default, :id => nil
+    %td.controls= link_to icon(:delete), '#', :class => 'delete'

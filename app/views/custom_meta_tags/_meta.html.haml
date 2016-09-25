@@ -1,0 +1,9 @@
+= form.fields_for :meta_custom do |cf|
+  - site.custom_meta_tags.each do |meta_tag|
+    = cf.field meta_tag.attribute_key, label: meta_tag.name do
+      - value = resource.meta_custom[meta_tag.attribute_key]
+
+      - if meta_tag.value_type == "text"
+        = cf.text_field meta_tag.attribute_key, value: value
+      - else
+        = cf.image meta_tag.attribute_key, value: value.is_a?(CustomMetaTags::ImageValue) ? value : CustomMetaTags::ImageValue.new

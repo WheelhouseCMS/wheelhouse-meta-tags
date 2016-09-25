@@ -1,0 +1,7 @@
+en:
+  resource:
+    models:
+      custom_meta_tags/meta_tag_definition_set: Meta Tags
+
+  sections:
+    configuration/meta_tags: Custom Meta Tags

@@ -1,0 +1,38 @@
+- title "Custom Meta Tags"
+
+= wheelhouse_form_for @site, :url => meta_tags_path, :html => { "data-loading" => flash_message(@meta_tags, 'saving') } do |form|
+  .content
+    %h2 Custom Meta Tags
+
+    %table#custom-meta-tags.wheelhouse-table
+      %thead
+        %tr
+          %th.name Name
+          %th.attribute Attribute
+          %th.key Key
+          %th.type Type
+          %th.default Default
+          %th.controls &nbsp;
+
+      %tbody
+        - @meta_tags.each_with_index do |meta_tag, index|
+          = render :partial => 'meta_tag', :object => meta_tag, :locals => { :form => form, :index => index }
+
+    .buttons.top
+      = link_to 'New Meta Tag', '#', :class => 'add add-meta-tag'
+
+    = jquery_template_tag "new-meta-tag-template" do
+      = render :partial => 'meta_tag', :object => CustomMetaTags::MetaTagDefinition.new, :locals => { :form => form, :index => '${index}' }
+
+  .sidebar
+    = render_flash
+
+    .buttons
+      = button "Save Settings", :icon => :publish, :submit => true
+
+    %hr
+
+    = render "wheelhouse/admin/configuration/sidebar"
+
+- content_for :javascript do
+  = javascript_include_tag "custom-meta-tags/admin"
