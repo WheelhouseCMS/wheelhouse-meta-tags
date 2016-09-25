@@ -1,6 +1,9 @@
 Custom Meta Tags Plugin for Wheelhouse CMS
 ==========================================
 
+![Defining custom meta tags](https://www.wheelhousecms.com/media/a186749b/Custom-Meta-Tags-Definition.png)
+![Editing custom meta tags](https://www.wheelhousecms.com/media/4705db87/Custom-Meta-Tags-Editing.png)
+
 This gem enables the addition of custom meta tags (e.g. OpenGraph properties) into your Wheelhouse CMS site.
 
 
